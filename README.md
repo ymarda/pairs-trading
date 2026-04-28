@@ -16,7 +16,7 @@ This system identifies cointegrated pairs of stocks, generates mean-reversion tr
 2. **Cointegration testing**: Engle-Granger procedure on all 780 possible pairs (in-sample only)
 3. **Pair filtering**: Statistical significance, half-life, sector, and hedge-ratio filters reduce the universe to 33 tradeable pairs (criteria detailed in Methodology section)
 4. **Signal generation**: Rolling z-score with state-machine position management
-5. **Backtest**: Dollar-neutral position sizing with realistic frictions, including 5 bps round-trip transaction costs and a 50 bps annual short-borrow cost
+5. **Backtest**: Dollar-neutral position sizing with realistic frictions, including 5 bps round-trip transaction costs and a 50 bps annual short-borrow cost. 
 Note: The hedge ratio β is used only to define the spread (and thus the trading signal) during cointegration analysis. Position sizing itself ignores β, which is the standard approach for retail-scale stat arb because β-weighted sizing tends to scale P&L erratically with stock prices and adds little benefit when β is close to 1.
 6. **Robustness analysis**: Stress tests including per-pair return attribution, parameter sensitivity sweeps, and drop-top-N analysis to verify the strategy isn't reliant on a few outlier pairs
 7. **Out-of-sample test**: The strategy is applied unchanged to 2023-2026 data, simulating real-time deployment

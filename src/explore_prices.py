@@ -82,7 +82,7 @@ if __name__ == "__main__":
         plot_sector(prices, sector, save_dir)
 
     # Plot a few example pairs that might be cointegrated
-    plot_pair_example(prices, "KO", "PEP", save_dir)      # Coke vs Pepsi
-    plot_pair_example(prices, "JPM", "BAC", save_dir)     # Two big banks
-    plot_pair_example(prices, "XOM", "CVX", save_dir)     # Two oil majors
-    plot_pair_example(prices, "AAPL", "XOM", save_dir)    # Unrelated — should NOT be cointegrated
+    plot_pair_example(prices, "KO", "PEP", save_dir)      
+    plot_pair_example(prices, "JPM", "BAC", save_dir)     
+    plot_pair_example(prices, "XOM", "CVX", save_dir)     
+    plot_pair_example(prices, "AAPL", "XOM", save_dir)    

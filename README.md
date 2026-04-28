@@ -17,6 +17,7 @@ This system identifies cointegrated pairs of stocks, generates mean-reversion tr
 3. **Pair filtering**: Statistical significance, half-life, sector, and hedge-ratio filters reduce the universe to 33 tradeable pairs (criteria detailed in Methodology section)
 4. **Signal generation**: Rolling z-score with state-machine position management
 5. **Backtest**: Dollar-neutral position sizing with realistic frictions, including 5 bps round-trip transaction costs and a 50 bps annual short-borrow cost
+Note: The hedge ratio β is used only to define the spread (and thus the trading signal) during cointegration analysis. Position sizing itself ignores β, which is the standard approach for retail-scale stat arb because β-weighted sizing tends to scale P&L erratically with stock prices and adds little benefit when β is close to 1.
 6. **Robustness analysis**: Stress tests including per-pair return attribution, parameter sensitivity sweeps, and drop-top-N analysis to verify the strategy isn't reliant on a few outlier pairs
 7. **Out-of-sample test**: The strategy is applied unchanged to 2023-2026 data, simulating real-time deployment
 
@@ -97,7 +98,7 @@ Several stress tests confirm the in-sample results were not driven by a few luck
 
 - **Concentration**: Top 3 pairs contributed only 18% of returns; top 5 contributed 37%. Not concentrated.
 - **Drop-top-N**: Removing the top 10 best in-sample pairs still yielded Sharpe 1.18.
-- **Parameter sensitivity**: Sharpe ranged 1.59-2.28 across 18 combinations of (z_entry, z_stop, rolling_window). Stable.
+- **Parameter sensitivity**: Sharpe ranged 1.59-2.28 across 18 combinations of the three core parameters (`z_entry`, `z_stop`, `rolling_window`). Stable.
 - **Borrow costs**: Adding 50bps annual borrow reduced Sharpe by only 0.05.
 
 ![Per-pair Sharpe ratios](plots/readme/per_pair_sharpe.png)
@@ -120,6 +121,7 @@ These events represent **fundamental risk** in Do and Faff's taxonomy of arbitra
 A second finding from the per-pair attribution: the correlation between in-sample and out-of-sample Sharpe across pairs was only **0.32**. Some in-sample top performers decayed sharply (BAC/PNC, EOG/VLO), while some middle-of-the-pack pairs improved (HSY/PEP: IS 0.96 → OOS 1.26). This suggests a meaningful component of in-sample top performance was overfitting to noise rather than robust signal — even with conservative filtering for significance, half-life, sector, and hedge ratio.
 
 Despite the decay, **20 of 33 pairs (61%) maintained positive out-of-sample Sharpe**, indicating most cointegration relationships persisted in some form — just less profitably than 2018-2022.
+
 ---
 
 ## Extensions and future work

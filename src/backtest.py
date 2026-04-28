@@ -25,7 +25,7 @@ from src.signals import (
 class BacktestParams:
     """Parameters controlling the backtest."""
     transaction_cost_bps: float = 5.0  # Round-trip cost per trade in basis points (1 bp = 0.01%)
-    initial_capital: float = 1.0       # Dollar capital per pair (we'll normalize anyway)
+    initial_capital: float = 1.0       # Dollar capital per pair 
 
 
 def compute_pair_pnl(

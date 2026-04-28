@@ -34,7 +34,7 @@ def run_strategy_full_period(
     Run the strategy over the full price history (in-sample + out-of-sample).
 
     The α, β are taken from selected_pairs (estimated on in-sample only).
-    The rolling z-score uses past data only, so passing the full history is fine.
+    The rolling z-score uses past data only.
     Returns DataFrame with daily returns and cumulative return.
     """
     pair_returns = {}

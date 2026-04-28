@@ -23,11 +23,11 @@ UNIVERSE = {
     ],
     "ConsumerStaples": [
     "KO", "PEP", "PG", "CL", "KMB",
-    "GIS", "MKC", "HSY", "MDLZ", "CPB"  # replaced K with McCormick (spices)
+    "GIS", "MKC", "HSY", "MDLZ", "CPB"  
 ],
     "Energy": [
     "XOM", "CVX", "COP", "SLB", "EOG",
-    "PSX", "MPC", "VLO", "OXY", "BKR"  # replaced HES with Baker Hughes (oil services)
+    "PSX", "MPC", "VLO", "OXY", "BKR"  
 ]
 }
 
@@ -104,7 +104,7 @@ def download_prices(
         # Multiple tickers: columns are MultiIndex (field, ticker)
         prices = raw["Close"].copy()
 
-    # Drop any rows where ALL tickers are NaN (rare but possible at start/end)
+    # Drop any rows where ALL tickers are NaN 
     prices = prices.dropna(how="all")
 
     print(f"Downloaded {len(prices)} rows for {len(prices.columns)} tickers.")

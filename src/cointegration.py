@@ -184,7 +184,7 @@ if __name__ == "__main__":
     print(f"In-sample rows: {len(in_sample)}")
     print()
 
-    # Sanity check on the four pairs we discussed
+    # Sanity check on four pairs
     print("=" * 60)
     print("Sanity check: testing the 4 pairs from explore_prices.py")
     print("=" * 60)
